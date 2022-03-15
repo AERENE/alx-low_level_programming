@@ -7,7 +7,7 @@
 int main(void)
 {
 	char ch;
-	print_alphabet("Prints the alphabet, in lowercase, followed by a new line.");
+	void print_alphabet(void);
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
 		putchar(ch);
