@@ -6,6 +6,7 @@
  */
 int main(void)
 {
-fputs("_putchar",stdout);
+fputs("_putchar", stdout);
+fputs("\n");
 return (0);
 }
