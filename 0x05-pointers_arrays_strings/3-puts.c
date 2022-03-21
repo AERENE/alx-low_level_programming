@@ -7,9 +7,12 @@
 void _puts(char *str)
 {
 
-putchar('s');
-putchar('t');
-putchar('r');
+while (*str != '\0')
+
+		{
+			_putchar(*str++);
+
+				}
 putchar('\n');
 
 }
