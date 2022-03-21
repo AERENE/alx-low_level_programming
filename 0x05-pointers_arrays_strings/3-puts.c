@@ -6,9 +6,10 @@
  */
 void _puts(char *str)
 {
-char *str;
-str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
-putchar(str);
+
+putchar('s');
+putchar('t');
+putchar('r');
 putchar('\n');
 
 }
