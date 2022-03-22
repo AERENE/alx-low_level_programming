@@ -17,34 +17,19 @@ void puts_half(char *str)
 
 	int size = strlen(str);
 
-
-
 	if (size % 2 == 0)
-
 	{
-
 		half = size / 2;
-
 		while (str[i] != '\0')
-
 		{
-
-			if (i >= half)
-
+		if (i >= half)
 			{
-
-				putchar(str[i]);
-
+			putchar(str[i]);
 			}
-
 			i++;
-
 		}
-
 	}
-
 	else
-
 	{
 	half = (size - 1) / 2;
 	while (str[i] != '\0')
