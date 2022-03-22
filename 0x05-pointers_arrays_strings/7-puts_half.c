@@ -50,21 +50,13 @@ void puts_half(char *str)
 		half = (size - 1) / 2;
 
 		while (str[i] != '\0')
-
 		{
-
-			if (i > half)
-
+		if (i > half)
 			{
-
-				putchar(str[i]);
-
+			putchar(str[i]);
 			}
-
-			i++;
-
+		 i++;
 		}
-
 	}
 
 	putchar('\n');
