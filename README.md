@@ -1,1 +1,1 @@
-Project 0x06.C - More pointers, arrays and strings
+Solving project 0x0A. C - argc, argv
