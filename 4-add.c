@@ -1,51 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-/**
- * num_checker - checks if a given char is number or not
- * @a: char to be checked
- * Return: 1, if its a number, else 0
- **/
-int num_checker(char *a)
-{
-	int x, num, l;
+#include <ctype.h>
 
-	x = 0;
-	num = 0;
-	l = strlen(a);
-	while (x < l)
+/**
+ * _isnumber - checks if string is a number
+ * @s: string
+ *
+ * Return: On success 1.
+ * If not a number, 0 is returned.
+ */
+
+int _isnumber(char *s)
+{
+	int i, check, d;
+
+	i = 0, d = 0, check = 1;
+	if (*s == '-')
+		i++;
+	for (; *(s + i) != 0; i++)
 	{
-		if (a[x] < '0' || a[x] > '9')
+		d = isdigit(*(s + i));
+		if (d == 0)
 		{
-			return (-1);
+			check = 0;
+			break;
 		}
-		else
-			num = num * 10 + (a[x] - '0');
-		x++;
 	}
-	return (num);
+	return (check);
 }
 /**
- * main - add positive numbers
- * @argc: arguement count
- * @argv: array of pointers to arguement strings
- * Return: result of addition or 1
- **/
-int main(int argc, char *argv[])
+ * main - Entry point
+ *
+ * @argc: Counts the number of parameters that go into main
+ * @argv: Pointer of array of pointers containing strings entering main
+ * Return: Always 0 (Success)
+ */
+int main(int argc, char **argv)
 {
-	int x, num, sum;
+	int i, n, ex;
 
-	sum = 0;
-	for (x = 1; x < argc; x++)
+	ex = 0, n = 0;
+	if (argc > 1)
 	{
-		num = num_checker(argv[x]);
-		if (num == -1)
+		for (i = 1; i < argc; i++)
 		{
-			printf("Error\n");
-			return (1);
+			if (_isnumber(argv[i]))
+				n += atoi(argv[i]);
+			else
+				ex = 1;
 		}
-		sum += num;
 	}
-	printf("%d\n", sum);
-	return (0);
+	if (ex == 0)
+		printf("%i\n", n);
+	else
+		printf("%s\n", "Error");
+	return (ex);
 }
