@@ -1,58 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 
 /**
- * _isnumber - checks if string is a number
- * @s: string
- *
- * Return: On success 1.
- * If not a number, 0 is returned.
+ * main - adds positives numbers
+ * @argc: arguments count
+ * @argv: arguments vector
+ * Return: 0
  */
 
-int _isnumber(char *s)
+int main(int argc, char *argv[])
 {
-	int i, check, d;
+	int num, digit, sum = 0;
 
-	i = 0, d = 0, check = 1;
-	if (*s == '-')
-		i++;
-	for (; *(s + i) != 0; i++)
+	for (num = 1; num < argc; num++)
 	{
-		d = isdigit(*(s + i));
-		if (d == 0)
+		for (digit = 0; argv[num][digit]; digit++)
 		{
-			check = 0;
-			break;
-		}
-	}
-	return (check);
-}
-/**
- * main - Entry point
- *
- * @argc: Counts the number of parameters that go into main
- * @argv: Pointer of array of pointers containing strings entering main
- * Return: Always 0 (Success)
- */
-int main(int argc, char **argv)
-{
-	int i, n, ex;
 
-	ex = 0, n = 0;
-	if (argc > 1)
-	{
-		for (i = 1; i < argc; i++)
-		{
-			if (_isnumber(argv[i]))
-				n += atoi(argv[i]);
-			else
-				ex = 1;
+			if (argv[num][digit] < '0' || argv[num][digit] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
+		sum += atoi(argv[num]);
 	}
-	if (ex == 0)
-		printf("%i\n", n);
-	else
-		printf("%s\n", "Error");
-	return (ex);
+	printf("%d\n", sum);
+	return (0);
 }
