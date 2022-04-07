@@ -1,1 +1,1 @@
-Solving project 0x0A. C - argc, argv
+This project is on Even more pointers, arrays and strings'
